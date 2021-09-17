@@ -1,4 +1,4 @@
-# counter_remember
+# counter_mvvm
 
 A Compose Counter App using ViewModel to manage state.
 
