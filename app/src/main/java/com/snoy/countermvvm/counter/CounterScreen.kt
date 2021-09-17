@@ -5,22 +5,16 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.snoy.countermvvm.ui.theme.CounterMVVMTheme
 
-//ref 1 = https://developer.android.com/codelabs/jetpack-compose-state#5
-//ref 2 = https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/package-summary#rememberSaveable(kotlin.Array,androidx.compose.runtime.saveable.Saver,kotlin.String,kotlin.Function0)
+//ref = https://developer.android.com/codelabs/jetpack-compose-state#8
 
 @Composable
-fun CounterScreen() {
-    var counterValue by rememberSaveable { mutableStateOf(0) }
+fun CounterScreen(counterValue: Int, onIncrementTap: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -37,7 +31,7 @@ fun CounterScreen() {
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                    counterValue++
+                    onIncrementTap()
                 }
             ) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = null)
@@ -72,7 +66,7 @@ fun CounterText(counterValue: Int) {
 fun DefaultPreview() {
     CounterMVVMTheme {
         Surface(color = MaterialTheme.colors.background) {
-            CounterScreen()
+            CounterScreen(56, {})
         }
     }
 }
