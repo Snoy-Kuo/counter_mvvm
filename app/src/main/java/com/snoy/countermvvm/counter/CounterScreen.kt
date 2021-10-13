@@ -66,7 +66,7 @@ fun CounterText(counterValue: Int) {
 fun DefaultPreview() {
     CounterMVVMTheme {
         Surface(color = MaterialTheme.colors.background) {
-            CounterScreen(56, {})
+            CounterScreen(56) {}
         }
     }
 }
